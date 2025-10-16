@@ -28,7 +28,7 @@ class ResponsavelServiceTest {
     @BeforeEach
     void setup() {
         MockitoAnnotations.openMocks(this);
-        responsavel = Responsavel.builder().id(1L).nome("Carlos Silva").email("carlos@empresa.com").cargo("Gerente").build();
+        responsavel = Responsavel.builder().id(1L).nome("Carlos Mercer").email("djava2@gmail.com").cargo("Gerente").build();
     }
 
     @Test
@@ -36,14 +36,14 @@ class ResponsavelServiceTest {
         when(responsavelRepository.findAll()).thenReturn(List.of(responsavel));
         List<Responsavel> result = responsavelService.listar();
         assertEquals(1, result.size());
-        assertEquals("Carlos Silva", result.get(0).getNome());
+        assertEquals("Carlos Mercer", result.get(0).getNome());
     }
 
     @Test
     void deveBuscarPorId() {
         when(responsavelRepository.findById(1L)).thenReturn(Optional.of(responsavel));
         Responsavel result = responsavelService.buscarPorId(1L);
-        assertEquals("Carlos Silva", result.getNome());
+        assertEquals("Carlos Mercer", result.getNome());
     }
 
     @Test
@@ -74,7 +74,7 @@ class ResponsavelServiceTest {
         when(responsavelRepository.save(any())).thenReturn(responsavel);
 
         Responsavel atualizado = responsavelService.atualizar(1L, responsavel);
-        assertEquals("Carlos Silva", atualizado.getNome());
+        assertEquals("Carlos Mercer", atualizado.getNome());
     }
 
     @Test
