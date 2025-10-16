@@ -51,8 +51,7 @@ public class Projeto {
             if (terminoPrevisto != null && terminoPrevisto.isBefore(hoje)) return Status.ATRASADO;
             return Status.EM_ANDAMENTO;
         }
-        if (terminoRealizado != null) return Status.CONCLUIDO;
-        return Status.A_INICIAR;
+        return Status.CONCLUIDO;
     }
 
     private long calcularDiasAtraso() {

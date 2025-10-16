@@ -1,6 +1,7 @@
 package br.com.useinet.gerente.service;
 
 import br.com.useinet.gerente.model.Projeto;
+import br.com.useinet.gerente.model.Responsavel;
 import br.com.useinet.gerente.repository.ProjetoRepository;
 import br.com.useinet.gerente.repository.ResponsavelRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class ProjetoService {
 
     public Projeto salvar(Projeto projeto) {
         if (projeto.getResponsaveis() != null && !projeto.getResponsaveis().isEmpty()) {
-            List<Long> ids = projeto.getResponsaveis().stream().map(r -> r.getId()).toList();
+            List<Long> ids = projeto.getResponsaveis().stream().map(Responsavel::getId).toList();
 
             projeto.setResponsaveis(responsavelRepository.findAllById(ids));
         }
