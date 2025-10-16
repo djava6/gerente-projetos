@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "Gerente de Projetos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar Responsáveis",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/responsaveis"
+      }
+    },
+    {
+      "name": "Criar Responsável",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": "{{base_url}}/responsaveis",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Carlos Mercer\",\n  \"email\": \"djava2@gmail.com\",\n  \"cargo\": \"Gerente de Projetos\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar Projetos",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/projetos"
+      }
+    },
+    {
+      "name": "Criar Projeto",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": "{{base_url}}/projetos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Sistema Educacional\",\n  \"inicioPrevisto\": \"2025-10-01\",\n  \"terminoPrevisto\": \"2025-12-01\",\n  \"responsaveis\": [\n    { \"id\": 1 }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "name": "Atualizar Projeto (Concluir)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": "{{base_url}}/projetos/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"terminoRealizado\": \"2025-11-30\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Excluir Projeto",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/projetos/1"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
